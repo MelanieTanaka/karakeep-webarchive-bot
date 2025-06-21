@@ -1,0 +1,13 @@
+services:
+  karakeep-archivebot:
+    # Build the image from the Dockerfile located in app folder.
+    #set this to the correct path where you store the script and requirements file
+    build:
+      context: ../app
+      dockerfile: Dockerfile
+    container_name: karakeep-archivebot
+    # Load environment variables from the .env file in the current directory
+    # (i.e., the directory where this docker-compose.yml file is located)
+    env_file:
+      - ./.env
+    restart: unless-stopped
